@@ -202,13 +202,11 @@
     </header>
 
     <nav>
-      
-    <a href="/">Inicio</a>
-    <a href="/historia" style="color: #b22222;">Nuestra Historia</a>
-    <a href="/leyendas" class="destacado-amarillo">★ Muro de Honor ★</a>
-    <a href="/eventos">Eventos</a>
-</nav>
-    
+        <a href="/">Inicio</a>
+        <a href="/historia" style="color: #b22222;">Nuestra Historia</a>
+        <a href="/leyendas" class="destacado-amarillo">★ Muro de Honor ★</a>
+        <a href="/eventos">Eventos</a>
+    </nav>
 
     <div class="contenedor-principal">
         <h2 class="titulo-cronologia">Cronología de la Resistencia</h2>
@@ -230,7 +228,7 @@
                     <img src="{{ url_for('static', filename='img/demolicion.jpg') }}" 
                          alt="Demolición del Estadio" 
                          style="width: 100%; height: auto; border-radius: 8px; display: block;"
-                         onerror="this.onerror=null; this.src='img/demolicion.jpg';">
+                         onerror="this.onerror=null; this.src='/static/img/demolicion.jpg';">
                 </div>
             </div>
 
@@ -246,7 +244,7 @@
                     <img src="{{ url_for('static', filename='img/abandono.jpg') }}" 
                          alt="Predio en abandono" 
                          style="width: 100%; height: auto; border-radius: 8px; display: block;"
-                         onerror="this.onerror=null; this.src='img/abandono.jpg';">
+                         onerror="this.onerror=null; this.src='/static/img/abandono.jpg';">
                 </div>
             </div>
 
@@ -262,7 +260,7 @@
                     <img src="{{ url_for('static', filename='img/congreso.jpg') }}" 
                          alt="Congreso del Estado" 
                          style="width: 100%; height: auto; border-radius: 8px; display: block;"
-                         onerror="this.onerror=null; this.src='img/congreso.jpg';">
+                         onerror="this.onerror=null; this.src='/static/img/congreso.jpg';">
                 </div>
             </div>
 
@@ -275,11 +273,11 @@
                 </div>
                 <div class="timeline-dot"></div>
                 <div class="timeline-img-placeholder">
-    <img src="{{ url_for('static', filename='img/votacion.jpg') }}" 
-         alt="Votacion en el Congreso del Estado" 
-         style="width: 100%; height: auto; border-radius: 8px; display: block;"
-         onerror="this.onerror=null; this.src='img/votacion.jpg';">
-</div>
+                    <img src="{{ url_for('static', filename='img/votacion.jpg') }}" 
+                         alt="Votacion en el Congreso del Estado" 
+                         style="width: 100%; height: auto; border-radius: 8px; display: block;"
+                         onerror="this.onerror=null; this.src='/static/img/votacion.jpg';">
+                </div>
             </div>
 
             <!-- EVENTO 5: NACE EL PARQUE DE LA DIGNIDAD -->
@@ -291,11 +289,11 @@
                 </div>
                 <div class="timeline-dot"></div>
                 <div class="timeline-img-placeholder">
-    <img src="{{ url_for('static', filename='img/incio.jpg') }}" 
-         alt="inicio de esta lucha " 
-         style="width: 100%; height: auto; border-radius: 8px; display: block;"
-         onerror="this.onerror=null; this.src='img/inicio.jpg';">
-</div>
+                    <img src="{{ url_for('static', filename='img/inicio.jpg') }}" 
+                         alt="inicio de esta lucha " 
+                         style="width: 100%; height: auto; border-radius: 8px; display: block;"
+                         onerror="this.onerror=null; this.src='/static/img/inicio.jpg';">
+                </div>
             </div>
 
             <!-- EVENTO 6: EL AMPARO COLECTIVO -->
@@ -306,12 +304,12 @@
                     <p><strong>26 de Julio:</strong> Se presenta el amparo colectivo preparado por el abogado Emanuel Medina y encabezado por Miguel Ángel Arce Montiel con 16 firmantes. Se concede la suspensión temporal de la venta.</p>
                 </div>
                 <div class="timeline-dot"></div>
-              <div class="timeline-img-placeholder">
-    <img src="{{ url_for('static', filename='img/abogado.jpg') }}" 
-         alt="Votación en el Congreso del Estado" 
-         style="width: 95%; height: auto; border-radius: 8px; display: block;"
-         onerror="this.onerror=null; this.src='img/abogado.jpg';">
-</div>
+                <div class="timeline-img-placeholder">
+                    <img src="{{ url_for('static', filename='img/abogado.jpg') }}" 
+                         alt="Votación en el Congreso del Estado" 
+                         style="width: 95%; height: auto; border-radius: 8px; display: block;"
+                         onerror="this.onerror=null; this.src='/static/img/abogado.jpg';">
+                </div>
             </div>
 
             <!-- EVENTO 7: TRES FRENTES DE BATALLA Y LA SUPREMA CORTE -->
@@ -322,12 +320,12 @@
                     <p>Frente a talas clandestinas e incendios provocados para descuidar el terreno, la comunidad responde con reforestación constante. El caso escala de forma inédita hasta ser atraído por la <strong>Suprema Corte de Justicia de la Nación</strong>.</p>
                 </div>
                 <div class="timeline-dot"></div>
-               <div class="timeline-img-placeholder">
-    <img src="{{ url_for('static', filename='img/punto.jpg') }}" 
-         alt="Votación en el Congreso del Estado" 
-         style="width: 100%; height: auto; border-radius: 8px; display: block;"
-         onerror="this.onerror=null; this.src='img/punto.jpg';">
-</div>
+                <div class="timeline-img-placeholder">
+                    <img src="{{ url_for('static', filename='img/punto.jpg') }}" 
+                         alt="Votación en el Congreso del Estado" 
+                         style="width: 100%; height: auto; border-radius: 8px; display: block;"
+                         onerror="this.onerror=null; this.src='/static/img/punto.jpg';">
+                </div>
             </div>
 
             <!-- EVENTO 8: EL TRIUNFO LEGAL -->
@@ -338,12 +336,12 @@
                     <p>Con Leopoldo Domínguez como presidente del Congreso, se aprueba la abrogación definitiva del decreto de venta de 2013. El terreno vuelve a ser oficialmente patrimonio público para siempre.</p>
                 </div>
                 <div class="timeline-dot"></div>
-               <div class="timeline-img-placeholder">
-    <img src="{{ url_for('static', filename='img/anulado.jpg') }}" 
-         alt="Votación en el Congreso del Estado" 
-         style="width: 100%; height: auto; border-radius: 8px; display: block;"
-         onerror="this.onerror=null; this.src='img/anulado.jpg';">
-</div>
+                <div class="timeline-img-placeholder">
+                    <img src="{{ url_for('static', filename='img/anulado.jpg') }}" 
+                         alt="Votación en el Congreso del Estado" 
+                         style="width: 100%; height: auto; border-radius: 8px; display: block;"
+                         onerror="this.onerror=null; this.src='/static/img/anulado.jpg';">
+                </div>
             </div>
 
             <!-- EVENTO 9: NUEVAS AMENAZAS DETENIDAS -->
@@ -355,11 +353,11 @@
                 </div>
                 <div class="timeline-dot"></div>
                 <div class="timeline-img-placeholder">
-    <img src="{{ url_for('static', filename='img/unidos.jpg') }}" 
-         alt="Votación en el Congreso del Estado" 
-         style="width: 100%; height: auto; border-radius: 8px; display: block;"
-         onerror="this.onerror=null; this.src='img/unidos.jpg';">
-</div>
+                    <img src="{{ url_for('static', filename='img/unidos.jpg') }}" 
+                         alt="Votación en el Congreso del Estado" 
+                         style="width: 100%; height: auto; border-radius: 8px; display: block;"
+                         onerror="this.onerror=null; this.src='/static/img/unidos.jpg';">
+                </div>
             </div>
 
             <!-- EVENTO 10: DÉCIMO ANIVERSARIO Y MEMORIA -->
@@ -370,12 +368,12 @@
                     <p>A una década del movimiento, investigadoras e investigadores de la UAN publican la memoria histórica <em>"Crear dos, tres, muchos Parques de la Dignidad"</em>, documentando las lecciones del parque.</p>
                 </div>
                 <div class="timeline-dot"></div>
-               <div class="timeline-img-placeholder">
-    <img src="{{ url_for('static', filename='img/juego.jpg') }}" 
-         alt="Votación en el Congreso del Estado" 
-         style="width: 100%; height: auto; border-radius: 8px; display: block;"
-         onerror="this.onerror=null; this.src='img/juego.jpg';">
-</div>
+                <div class="timeline-img-placeholder">
+                    <img src="{{ url_for('static', filename='img/juego.jpg') }}" 
+                         alt="Votación en el Congreso del Estado" 
+                         style="width: 100%; height: auto; border-radius: 8px; display: block;"
+                         onerror="this.onerror=null; this.src='/static/img/juego.jpg';">
+                </div>
             </div>
 
             <!-- EVENTO 11: EL CORAZÓN DEL PARQUE -->
@@ -386,34 +384,32 @@
                     <p>Hoy alberga más de <strong>500 especies</strong> de flora y fauna silvestre. El estandarte de este logro es la monumental <em>Ceiba speciosa</em> central, cuidada por vecinos y deportistas como el pulmón vivo de Tepic.</p>
                 </div>
                 <div class="timeline-dot"></div>
-               <div class="timeline-img-placeholder">
-    <img src="{{ url_for('static', filename='img/inicio.jpg') }}" 
-     alt="Inicio de esta lucha" 
-     style="width: 100%; height: auto; border-radius: 8px; display: block;"
-     onerror="this.onerror=null; this.src='img/inicio.jpg';">
-</div>
+                <div class="timeline-img-placeholder">
+                    <img src="{{ url_for('static', filename='img/inicio.jpg') }}" 
+                         alt="Inicio de esta lucha" 
+                         style="width: 100%; height: auto; border-radius: 8px; display: block;"
+                         onerror="this.onerror=null; this.src='/static/img/inicio.jpg';">
+                </div>
             </div>
-          <!-- EVENTO 12: A LO QUE NOS ENFRENTAMOS -->
-<div class="timeline-item">
-    <div class="timeline-card">
-        <span style="font-size: 1.5rem;">⚠️</span>
-        <div class="fecha">Actualidad: <span class="año">La Amenaza Persiste</span></div>
-        <p><strong>A lo que nos enfrentamos:</strong> Actualmente existe la intención de construir un estadio con un presupuesto aproximado de <strong>300 millones de pesos</strong>, pretendiendo utilizar los terrenos del Parque de la Dignidad como área de estacionamiento. Tras años de defensa constante, la comunidad se mantiene firme: no permitiremos la destrucción de un pulmón verde fundamental para Tepic.</p>
-    </div>
-    <div class="timeline-dot"></div>
-    <div class="timeline-img-placeholder">
-        <img src="{{ url_for('static', filename='img/asco.jpg') }}" 
-             alt="Proyecto del Estadio" 
-             style="width: 100%; height: auto; border-radius: 8px; display: block;"
-             onerror="this.onerror=null; this.src='img/asco.jpg';">
-    </div>
-</div>
+
+            <!-- EVENTO 12: A LO QUE NOS ENFRENTAMOS -->
+            <div class="timeline-item">
+                <div class="timeline-card">
+                    <span style="font-size: 1.5rem;">⚠️</span>
+                    <div class="fecha">Actualidad: <span class="año">La Amenaza Persiste</span></div>
+                    <p><strong>A lo que nos enfrentamos:</strong> Actualmente existe la intención de construir un estadio con un presupuesto aproximado de <strong>300 millones de pesos</strong>, pretendiendo utilizar los terrenos del Parque de la Dignidad como área de estacionamiento. Tras años de defensa constante, la comunidad se mantiene firme: no permitiremos la destrucción de un pulmón verde fundamental para Tepic.</p>
+                </div>
+                <div class="timeline-dot"></div>
+                <div class="timeline-img-placeholder">
+                    <img src="{{ url_for('static', filename='img/asco.jpg') }}" 
+                         alt="Proyecto del Estadio" 
+                         style="width: 100%; height: auto; border-radius: 8px; display: block;"
+                         onerror="this.onerror=null; this.src='/static/img/asco.jpg';">
+                </div>
+            </div>
+
         </div>
     </div>
 
     <footer>
-        <p>Sitio web desarrollado por <span>Alan Master 95</span> &copy; 2026</p>
-    </footer>
-
-</body>
-</html>
+        <p>Sitio web desarrollado por <span>Alan Master 95

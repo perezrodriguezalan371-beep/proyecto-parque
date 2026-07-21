@@ -242,10 +242,10 @@
     </header>
 
     <nav>
-      <a href="/">Inicio</a>
-<a href="/historia">Nuestra Historia</a>
-<a href="/leyendas" class="destacado-amarillo">★ Muro de Honor ★</a>
-<a href="/eventos">Eventos</a>
+        <a href="/">Inicio</a>
+        <a href="/historia">Nuestra Historia</a>
+        <a href="/leyendas" class="destacado-amarillo">★ Muro de Honor ★</a>
+        <a href="/eventos">Eventos</a>
     </nav>
 
     <div class="contenedor-principal">
@@ -262,7 +262,7 @@
                 
                 <!-- Portada donde se carga el cartel directamente -->
                 <div class="cartel-portada">
-                    <img src="img/cartel.jpg" alt="Cartel de 13 Años de Resistencia" style="width: 250px; height: auto;">
+                    <img src="/static/img/cartel.jpg" alt="Cartel de 13 Años de Resistencia" style="width: 250px; height: auto;">
                 </div>
                 
                 <!-- Datos informativos inferiores -->
@@ -287,7 +287,7 @@
                 
                 <!-- Contenedor de la foto conceptual abajo del evento principal -->
                 <div class="foto-comunidad-wrap">
-                    <img src="{{ url_for('static', filename='img/trabajo.jpg') }}" alt="Comunidad trabajando en el parque" onerror="this.onerror=null; this.src='img/trabajo.jpg';">
+                    <img src="{{ url_for('static', filename='img/trabajo.jpg') }}" alt="Comunidad trabajando en el parque" onerror="this.onerror=null; this.src='/static/img/trabajo.jpg';">
                 </div>
 
                 <span style="font-size: 2rem;">⏳</span>
