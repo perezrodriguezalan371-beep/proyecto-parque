@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Muro de Honor - Parque de la Dignidad</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Montserrat:wght@600;800&family=Segoe+UI:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background-color: #1a1612; /* Fondo oscuro exterior tipo noche sobre la arena */
+            color: #2c251e;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* HEADER TIPO COLISEO */
+        header {
+            background: linear-gradient(180deg, #2a1f17 0%, #17110c 100%);
+            color: #f3e5ab;
+            text-align: center;
+            padding: 3rem 1.5rem;
+            border-bottom: 4px solid #cda851;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.6);
+        }
+
+        header h1 {
+            font-family: 'Cinzel', serif; /* Fuente estilo romano/clásico */
+            font-weight: 900;
+            font-size: 2.8rem;
+            margin: 0 0 0.5rem 0;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: #f5d77f;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+        }
+
+        header p {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.1rem;
+            color: #d1c2a5;
+            margin: 0;
+            letter-spacing: 1px;
+        }
+
+        /* NAVEGACIÓN PRINCIPAL */
+        nav {
+            background-color: #0e0a07;
+            display: flex;
+            justify-content: center;
+            padding: 1rem;
+            border-bottom: 1px solid #3a2e21;
+        }
+
+        nav a {
+            color: #d1c2a5;
+            text-decoration: none;
+            margin: 0 1.2rem;
+            font-weight: 700;
+            font-size: 1.05rem;
+            font-family: 'Montserrat', sans-serif;
+            transition: all 0.3s ease;
+        }
+
+        nav a.destacado-amarillo {
+            color: #ffd54f !important;
+            text-shadow: 0 0 8px rgba(255, 213, 79, 0.4);
+        }
+
+        nav a:hover {
+            color: #f5d77f;
+        }
+
+        /* CONTENEDOR PRINCIPAL: HOJA COLOR ARENA/COLISEO */
+        .contenedor-coliseo {
+            max-width: 1100px;
+            margin: 2.5rem auto;
+            background: #fdf8eb; /* Tono dorado tenue tipo piedra de coliseo */
+            background-image: linear-gradient(to bottom, #fdf8eb, #f7eed7);
+            padding: 3rem 2.5rem;
+            border-radius: 16px;
+            border: 3px solid #cda851;
+            box-shadow: 0 12px 40px rgba(0,0,0,0.5);
+        }
+
+        .titulo-muro {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+
+        .subtitulo-seccion {
+            font-family: 'Cinzel', serif;
+            font-size: 1.6rem;
+            color: #4a3818;
+            border-bottom: 2px solid #cda851;
+            padding-bottom: 0.5rem;
+            margin: 2.5rem 0 1.5rem 0;
+            text-transform: uppercase;
+            text-align: center;
+        }
+
+        .titulo-muro h2 {
+            font-family: 'Cinzel', serif;
+            font-size: 2.3rem;
+            color: #4a3818;
+            margin: 0 0 0.5rem 0;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .titulo-muro p {
+            color: #7a6338;
+            font-weight: 600;
+            font-size: 1.05rem;
+            margin: 0;
+        }
+
+        /* GRID DE PERSONAS (5 POR FILA) */
+        .grid-campeones {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1.2rem;
+            margin-bottom: 2.5rem;
+        }
+
+        /* TARJETA DE CADA PERSONA */
+        .tarjeta-campeon {
+            background: #ffffff;
+            border: 2px solid #e2d2ad;
+            border-radius: 12px;
+            padding: 1.2rem 0.8rem;
+            text-align: center;
+            box-shadow: 0 6px 15px rgba(140, 109, 49, 0.1);
+            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tarjeta-campeon::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, #cda851, #8c6d31);
+        }
+
+        .tarjeta-campeon:hover {
+            transform: translateY(-6px);
+            border-color: #8c6d31;
+            box-shadow: 0 10px 25px rgba(140, 109, 49, 0.25);
+        }
+
+        /* ESCUDO EN LUGAR DE CARA (PROTECCIÓN DE PRIVACIDAD) */
+        .escudo-honor {
+            width: 65px;
+            height: 65px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #f5d77f, #cda851);
+            border: 3px solid #8c6d31;
+            margin: 0 auto 0.8rem auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+            box-shadow: inset 0 2px 5px rgba(255,255,255,0.6), 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        .tarjeta-campeon h3 {
+            font-family: 'Montserrat', sans-serif;
+            color: #3b2c11;
+            font-size: 1.02rem;
+            margin: 0 0 0.4rem 0;
+            font-weight: 800;
+        }
+
+        .tarjeta-campeon p {
+            color: #6e5a38;
+            font-size: 0.82rem;
+            line-height: 1.35;
+            margin: 0;
+        }
+
+        /* CONTENEDOR DE FOTOS INTERMEDIAS / SEPARADORES */
+        .banner-separador {
+            width: 100%;
+            height: 220px;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 2px solid #cda851;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+            position: relative;
+            background-color: #2a1f17;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .banner-separador img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(0.9) contrast(1.05);
+        }
+
+        .banner-separador .leyenda-foto {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(26, 22, 18, 0.85);
+            color: #f5d77f;
+            text-align: center;
+            padding: 0.6rem;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        footer {
+            margin-top: auto;
+            background-color: #0e0a07;
+            color: #d1c2a5;
+            text-align: center;
+            padding: 1.8rem;
+            font-size: 1rem;
+            font-family: 'Montserrat', sans-serif;
+            border-top: 3px solid #cda851;
+        }
+
+        footer span {
+            color: #ffd54f;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>🏛️ Arena de Leyendas 🏛️</h1>
+        <p>Muro de Honor en memoria y reconocimiento a quienes han luchado por el Parque de la Dignidad</p>
+    </header>
+
+    <nav>
+        <a href="index.html">Inicio</a>
+        <a href="historia.html">Nuestra Historia</a>
+        <a href="leyendas.html" class="destacado-amarillo">★ Muro de Honor ★</a>
+        <a href="eventos.html">Eventos</a>
+    </nav>
+
+    <div class="contenedor-coliseo">
+        
+        <div class="titulo-muro">
+            <h2>Nuestros Defensores y Campeones</h2>
+            <p>Héroes de la comunidad que entregaron su esfuerzo, sudor y corazón en esta gran causa.</p>
+        </div>
+
+        <!-- ================= SECCIÓN 1: LÍDERES Y ESTRATEGAS DEL AMPARO ================= -->
+        <h3 class="subtitulo-seccion">🛡️ Impulsores y Estrategas Legales 🛡️</h3>
+        
+        <div class="grid-campeones">
+            <div class="tarjeta-campeon">
+                <div class="escudo-honor">⚖️</div>
+                <h3>Miguel Ángel Arce Montiel</h3>
+                <p>Líder general y representante legal del amparo. Coordinó los frentes social, político y jurídico.</p>
+            </div>
+
+            <div class="tarjeta-campeon">
+                <div class="escudo-honor">🏛️</div>
+                <h3>Leopoldo Domínguez Glez.</h3>
+                <p>Diputado opositor y pres. del Congreso que impulsó la abrogación del decreto de venta.</p>
+            </div>
+
+            <div class="tarjeta-campeon">
+                <div class="escudo-honor">📜</div>
+                <h3>Emanuel Medina González</h3>
+                <p>Abogado que redactó toda la demanda de amparo y diseñó la estrategia jurídica.</p>
+            </div>
+
+            <div class="tarjeta-campeon">
+                <div class="escudo-honor">📢</div>
+                <h3>Dolores Porras Domínguez</h3>
+                <p>Diputada pionera en oponerse con firmeza a la venta del terreno desde el inicio.</p>
+            </div>
+
+            <div class="tarjeta-campeon">
+                <div class="escudo-honor">⚔️</div>
+                <h3>Gerardo Palomino Meras</h3>
+                <p>Diputado que rechazó el remate del terreno y respaldó políticamente la defensa comunitaria.</p>
+            </div>
+        </div>
+
+        <!-- FOTO SEPARADORA 1 -->
+        <div class="banner-separador">
+            <!-- [AQUÍ VA TU FOTO SEPARADORA 1] -->
+           <img src="{{ url_for('static', filename='img/profe.jpg') }}" 
+     alt="Profesores e Investigadores del Parque de la Dignidad" 
+     style="width: 70%; height: 240%; object-fit: cover;"
+     onerror="this.onerror=null; this.src='img/profe.jpg';">
+<div class="leyenda-foto">No descansa hasta ver vida en este lugar </div>
+        </div>
+
+
+        <!-- ================= SECCIÓN 2: INVESTIGADORES Y ORGANIZADORES ================= -->
+        <h3 class="subtitulo-seccion">📚 Academia, Documentación y Convocatoria 📚</h3>
+
+        <div class="grid-campeones">
+            <div class="tarjeta-campeon">
+                <div class="escudo-honor">📖</div>
+                <h3>Carlos Rafael Rea Rodríguez</h3>
+                <p>Investigador de la UAN que documentó y difundió rigurosamente la historia de la lucha.</p>
+            </div>
+
+            <div class="tarjeta-campeon">
+                <div class="escudo-honor">🔬</div>
+                <h3>Hugo H. Zepeda Márquez</h3>
+                <p>Académico e investigador dedicado al registro histórico del Parque de la Dignidad.</p>
+            </div>
+
+            <div class="tarjeta-campeon">
+                <div class="escudo-honor">✍️</div>
+                <h3>José Salvador Zepeda López</h3>
+                <p>Investigador UAN comprometido con la difusión ambiental y la memoria comunitaria.</p>
+            </div>
+
+            <div class="tarjeta-campeon">
+                <div class="escudo-honor">🗣️</div>
+                <h3>Octavio Campa Hernández</h3>
+                <p>Impulsor de las primeras asambleas, convocatorias y jornadas de organización civil.</p>
+            </div>
+
+            <div class="tarjeta-campeon">
+                <div class="escudo-honor">🔥</div>
+                <h3>Isaac Benjamín Cárdenas "Chakín"</h3>
+                <p>Referente social activo en las primeras movilizaciones y siembra del parque.</p>
+            </div>
+        </div>
+
+        <!-- FOTO SEPARADORA 2 -->
+        <div class="banner-separador">
+            <!-- [AQUÍ VA TU FOTO SEPARADORA 2] -->
+            <img src="{{ url_for('static', filename='img/equipo.jpg') }}" 
+     alt="Profesores e Investigadores del Parque de la Dignidad" 
+     style="width: 55%; height: 215%; object-fit: cover;"
+     onerror="this.onerror=null; this.src='img/equipo.jpg';">
+<div class="leyenda-foto">Dando el 100% por un lugar mejor </div>
+        </div>
+
+
+        <!-- ================= SECCIÓN 3: FIRMANTES DEL AMPARO HISTÓRICO ================= -->
+        <h3 class="subtitulo-seccion">✍️ Ciudadanos Firmantes del Amparo ✍️</h3>
+
+        <div class="grid-campeones">
+            <div class="tarjeta-campeon">
+                <div class="escudo-honor">⭐</div>
+                <h3>Rodrigo González Barrios</h3>
+                <p>Diputado federal que respaldó legal y políticamente el movimiento social.</p>
+            </div>
+
+            <div class="tarjeta-campeon">
+                <div class="escudo-honor">🌿</div>
+                <h3>Graciela de la Cruz Domínguez</h3>
+                <p>Firmante activa que brindó respaldo constante en las acciones comunitarias.</p>
+            </div>
+
+            <div class="tarjeta-campeon">
+                <div class="escudo-honor">🤝</div>
+                <h3>José Octavio Camelo Avedoy</h3>
+                <p>Líder ciudadano clave en la movilización y resistencia del territorio.</p>
+            </div>
+
+            <div class="tarjeta-campeon">
+                <div class="escudo-honor">🛡️</div>
+                <h3>José Arturo Hermosillo Glez.</h3>
+                <p>Firmante del amparo colectivo que defendió el patrimonio social de Tepic.</p>
+            </div>
+
+            <div class="tarjeta-campeon">
+                <div class="escudo-honor">✊</div>
+                <h3>Cesar Ricardo Luque Santana</h3>
+                <p>Defensor legal y ciudadano comprometido con la suspensión de la venta.</p>
+            </div>
+        </div>
+
+        <div class="grid-campeones">
+            <div class="tarjeta-campeon">
+                <div class="escudo-honor">🌱</div>
+                <h3>Luis Alberto Bravo Mora</h3>
+                <p>Guardia ecológico y participante clave en el cuidado inicial de la tierra.</p>
+            </div>
+
+            <div class="tarjeta-campeon">
+                <div class="escudo-honor">🌳</div>
+                <h3>Andrés Martínez Estrada</h3>
+                <p>Impulsor voluntario de las jornadas de riego y preservación silvestre.</p>
+            </div>
+
+            <div class="tarjeta-campeon">
+                <div class="escudo-honor">🦅</div>
+                <h3>Cesar Cruz Salazar</h3>
+                <p>Firmante del histórico amparo otorgado por la Suprema Corte de Justicia.</p>
+            </div>
+
+            <div class="tarjeta-campeon">
+                <div class="escudo-honor">🌸</div>
+                <h3>Alma Delia Sánchez Andrade</h3>
+                <p>Defensora comunitaria y pilar en la reforestación constante del área.</p>
+            </div>
+
+            <div class="tarjeta-campeon">
+                <div class="escudo-honor">🎓</div>
+                <h3>Lourdes Consuelo Pacheco</h3>
+                <p>Firmante, académica y luchadora social por espacios sustentables.</p>
+            </div>
+        </div>
+
+        <!-- FOTO SEPARADORA 3 -->
+        <div class="banner-separador">
+            <!-- [AQUÍ VA TU FOTO SEPARADORA 3] -->
+            <img src="{{ url_for('static', filename='img/futuro.jpg') }}" 
+     alt="Profesores e Investigadores del Parque de la Dignidad" 
+     style="width: 75%; height: 225; object-fit: cover;"
+     onerror="this.onerror=null; this.src='img/futuro.jpg';">
+<div class="leyenda-foto">Juntos hacemos posible este cambio</div>
+        </div>
+
+
+        <!-- ================= SECCIÓN 4: MENCIONES HONORÍFICAS Y COLECTIVOS ================= -->
+        <h3 class="subtitulo-seccion">🏃 Menciones Honoríficas y Colectivos 🏃</h3>
+
+        <div class="grid-campeones">
+            <div class="tarjeta-campeon">
+                <div class="escudo-honor">🏃‍♂️</div>
+                <h3>Atletas y Deporte Local</h3>
+                <p>Atletas, entrenadores y deportistas que defendieron la zona deportiva histórica.</p>
+            </div>
+
+            <div class="tarjeta-campeon">
+                <div class="escudo-honor">🚲</div>
+                <h3>Tepic en Bici y Ambientalistas</h3>
+                <p>Colectivos ciclistas y ecológicos que sostuvieron las rodadas y riegos.</p>
+            </div>
+
+            <div class="tarjeta-campeon">
+                <div class="escudo-honor">🚩</div>
+                <h3>UPIN y FOSVIN</h3>
+                <p>Organizaciones populares que marcharon y resguardaron el predio día a día.</p>
+            </div>
+
+            <div class="tarjeta-campeon">
+                <div class="escudo-honor">🧑‍🎓</div>
+                <h3>Estudiantes y Juventudes</h3>
+                <p>Jóvenes que plantaron más de 500 especies silvícolas y cuidaron su crecimiento.</p>
+            </div>
+
+            <div class="tarjeta-campeon">
+                <div class="escudo-honor">🌲</div>
+                <h3>Vecinos y Voluntarios</h3>
+                <p>La ciudadanía en general que con palas, agua y esfuerzo sostuvo la dignidad del parque.</p>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>Sitio web desarrollado por <span>Alan Master 95</span> &copy; 2026</p>
+    </footer>
+
+</body>
+</html>

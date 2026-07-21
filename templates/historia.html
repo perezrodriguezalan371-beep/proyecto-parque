@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuestra Historia - Parque de la Dignidad</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Segoe+UI:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background-color: #fcf9f5; /* Fondo crema suave elegante */
+            color: #2b2b2b; /* Texto casi negro para mayor impacto y lectura */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        header {
+            background-color: #1a1a1a; /* Fondo negro sólido para resaltar el encabezado */
+            color: white;
+            text-align: center;
+            padding: 2.5rem 2rem;
+            border-bottom: 4px solid #b22222; /* Línea roja fuerte divisoria */
+        }
+        header h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            font-size: 2.5rem;
+            margin: 0 0 0.5rem 0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        header p {
+            font-size: 1.1rem;
+            color: #cccccc;
+            margin: 0;
+        }
+        
+        /* ESTILOS DEL MENÚ INTERACTIVO */
+        nav {
+            background-color: #111111; /* Negro profundo */
+            display: flex;
+            justify-content: center;
+            padding: 0.9rem;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 1.5rem;
+            font-weight: 700; /* Letras negritas bien marcadas */
+            font-size: 1.1rem;
+            font-family: 'Montserrat', sans-serif;
+            transition: color 0.2s ease;
+        }
+        
+        nav a.destacado-amarillo {
+            color: #ffd54f !important;
+        }
+        
+        nav a:hover {
+            color: #b22222;
+        }
+
+        .contenedor-principal {
+            max-width: 1000px;
+            margin: 3rem auto;
+            background: #ffffff; /* Blanco puro para la caja principal */
+            padding: 3rem;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+        
+        /* TÍTULO PRINCIPAL EN ROJO FUERTE Y NEGRITAS */
+        h2.titulo-cronologia {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            color: #b22222; /* Rojo Fuerte */
+            font-size: 2.2rem;
+            text-align: center;
+            text-transform: uppercase;
+            margin-bottom: 3rem;
+            letter-spacing: 1.5px;
+        }
+
+        /* DISEÑO DE LA LÍNEA DE TIEMPO */
+        .timeline {
+            position: relative;
+            padding: 2rem 0;
+        }
+        /* Eje vertical central en negro/gris oscuro */
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background-color: #2b2b2b;
+            transform: translateX(-50%);
+        }
+        .timeline-item {
+            position: relative;
+            margin-bottom: 4rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+        .timeline-item:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+        
+        /* TARJETAS CON BORDE ROJO Y FONDO BLANCO PULIDO */
+        .timeline-card {
+            width: 45%;
+            padding: 1.8rem;
+            background: #ffffff;
+            border-radius: 8px;
+            border-left: 5px solid #b22222; /* Detalle rojo fuerte al costado */
+            box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+            box-sizing: border-box;
+            border-top: 1px solid #eee;
+            border-right: 1px solid #eee;
+            border-bottom: 1px solid #eee;
+        }
+        .timeline-item:nth-child(odd) .timeline-card {
+            text-align: right;
+            border-left: none;
+            border-right: 5px solid #b22222; /* Lado derecho para los impares */
+        }
+        
+        .timeline-img-placeholder {
+            width: 45%;
+            text-align: center;
+            box-sizing: border-box;
+        }
+        
+        /* Círculos conectores centrales en Rojo */
+        .timeline-dot {
+            position: absolute;
+            left: 50%;
+            width: 16px;
+            height: 16px;
+            background: #b22222;
+            border: 4px solid white;
+            border-radius: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        /* FECHAS EN NEGRITA */
+        .fecha {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            color: #1a1a1a; /* Negro para el texto de la fecha */
+            font-size: 1.25rem;
+            margin: 0.5rem 0;
+        }
+        .fecha span.año {
+            color: #b22222; /* El año resalta en rojo */
+        }
+        
+        .timeline-card p {
+            line-height: 1.6;
+            margin: 0;
+            color: #444444;
+            font-size: 1rem;
+            font-weight: 600; /* Un grosor de texto más robusto y estético */
+        }
+
+        @media (max-width: 768px) {
+            .timeline::before { left: 20px; }
+            .timeline-item, .timeline-item:nth-child(even) { flex-direction: column; align-items: flex-start; }
+            .timeline-card, .timeline-img-placeholder { width: 90%; margin-left: 40px; text-align: left !important; border-left: 5px solid #b22222 !important; border-right: none !important; }
+            .timeline-dot { left: 20px; }
+            .timeline-img-placeholder { margin-top: 1rem; }
+        }
+
+        footer {
+            margin-top: auto;
+            background-color: #111111;
+            color: white;
+            text-align: center;
+            padding: 1.5rem;
+            font-size: 1rem;
+            font-family: 'Montserrat', sans-serif;
+            border-top: 3px solid #b22222;
+        }
+        footer span {
+            color: #ffd54f;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Nuestra Historia</h1>
+        <p>Cronología de la resistencia ciudadana por defender el pulmón de Tepic.</p>
+    </header>
+
+    <nav>
+        <a href="index.html">Inicio</a>
+        <a href="historia.html" style="color: #b22222;">Nuestra Historia</a>
+        <a href="leyendas.html" class="destacado-amarillo">★ Muro de Honor ★</a>
+        <a href="eventos.html">Eventos</a>
+    </nav>
+
+    <div class="contenedor-principal">
+        <h2 class="titulo-cronologia">Cronología de la Resistencia</h2>
+        <p style="margin-bottom: 3rem; line-height: 1.6; text-align: center; font-weight: 600; color: #555;">
+            La existencia del Parque de la Dignidad es el resultado directo de la unión vecinal. A continuación, te presentamos los acontecimientos clave que marcaron la defensa de este espacio natural frente a los intentos de privatización en la capital nayarita:
+        </p>
+
+        <div class="timeline">
+
+            <!-- EVENTO 1: LA DEMOLICIÓN Y EL ABANDONO -->
+            <div class="timeline-item">
+                <div class="timeline-card">
+                    <span style="font-size: 1.5rem;">🔨</span>
+                    <div class="fecha">Marzo de <span class="año">2009</span>: La Demolición</div>
+                    <p>Bajo el gobierno de Ney González, se demolieron el antiguo Estadio de Béisbol y el Estadio Nicolás Álvarez Ortega ("La Cachucha"), prometiendo la "Ciudad de las Artes". El proyecto nunca inició y el terreno de 17,140 m² quedó en abandono.</p>
+                </div>
+                <div class="timeline-dot"></div>
+                <div class="timeline-img-placeholder">
+                    <img src="{{ url_for('static', filename='img/demolicion.jpg') }}" 
+                         alt="Demolición del Estadio" 
+                         style="width: 100%; height: auto; border-radius: 8px; display: block;"
+                         onerror="this.onerror=null; this.src='img/demolicion.jpg';">
+                </div>
+            </div>
+
+            <!-- EVENTO 2: AÑOS DE ABANDONO -->
+            <div class="timeline-item">
+                <div class="timeline-card">
+                    <span style="font-size: 1.5rem;">🏚️</span>
+                    <div class="fecha">Años <span class="año">2010 - 2012</span>: El Olvido</div>
+                    <p>Tras congelarse los proyectos oficiales, el terreno del antiguo estadio permaneció como un baldío abandonado, convirtiéndose en una zona descuidada en pleno corazón urbano de Tepic.</p>
+                </div>
+                <div class="timeline-dot"></div>
+                <div class="timeline-img-placeholder">
+                    <img src="{{ url_for('static', filename='img/abandono.jpg') }}" 
+                         alt="Predio en abandono" 
+                         style="width: 100%; height: auto; border-radius: 8px; display: block;"
+                         onerror="this.onerror=null; this.src='img/abandono.jpg';">
+                </div>
+            </div>
+
+            <!-- EVENTO 3: INICIATIVA DE VENTA -->
+            <div class="timeline-item">
+                <div class="timeline-card">
+                    <span style="font-size: 1.5rem;">📜</span>
+                    <div class="fecha">24 de Junio de <span class="año">2013</span></div>
+                    <p>El Gobernador Roberto Sandoval Castañeda presenta iniciativa al Congreso para autorizar la venta de los 17,140 m², argumentando saldar supuestos adeudos con la UAN sin transparencia alguna.</p>
+                </div>
+                <div class="timeline-dot"></div>
+                <div class="timeline-img-placeholder">
+                    <img src="{{ url_for('static', filename='img/congreso.jpg') }}" 
+                         alt="Congreso del Estado" 
+                         style="width: 100%; height: auto; border-radius: 8px; display: block;"
+                         onerror="this.onerror=null; this.src='img/congreso.jpg';">
+                </div>
+            </div>
+
+            <!-- EVENTO 4: LA APROBACIÓN DE LA VENTA -->
+            <div class="timeline-item">
+                <div class="timeline-card">
+                    <span style="font-size: 1.5rem;">⚖️</span>
+                    <div class="fecha">27 de Junio de <span class="año">2013</span></div>
+                    <p>El Pleno del Congreso aprueba la venta con 21 votos a favor y solo 5 en contra (diputados opositores como Leopoldo Domínguez y Dolores Porras votaron en contra), desatando la molestia social.</p>
+                </div>
+                <div class="timeline-dot"></div>
+                <div class="timeline-img-placeholder">
+    <img src="{{ url_for('static', filename='img/votacion.jpg') }}" 
+         alt="Votacion en el Congreso del Estado" 
+         style="width: 100%; height: auto; border-radius: 8px; display: block;"
+         onerror="this.onerror=null; this.src='img/votacion.jpg';">
+</div>
+            </div>
+
+            <!-- EVENTO 5: NACE EL PARQUE DE LA DIGNIDAD -->
+            <div class="timeline-item">
+                <div class="timeline-card">
+                    <span style="font-size: 1.5rem;">📢</span>
+                    <div class="fecha">30 de Junio de <span class="año">2013</span></div>
+                    <p>Respuesta ciudadana inmediata: familias y colectivos acuden al terreno a plantar árboles. Nace oficialmente el nombre de <strong>Parque de la Dignidad</strong> como símbolo de resistencia ambiental.</p>
+                </div>
+                <div class="timeline-dot"></div>
+                <div class="timeline-img-placeholder">
+    <img src="{{ url_for('static', filename='img/incio.jpg') }}" 
+         alt="inicio de esta lucha " 
+         style="width: 100%; height: auto; border-radius: 8px; display: block;"
+         onerror="this.onerror=null; this.src='img/inicio.jpg';">
+</div>
+            </div>
+
+            <!-- EVENTO 6: EL AMPARO COLECTIVO -->
+            <div class="timeline-item">
+                <div class="timeline-card">
+                    <span style="font-size: 1.5rem;">📁</span>
+                    <div class="fecha">Julio de <span class="año">2013</span>: Batalla Legal</div>
+                    <p><strong>26 de Julio:</strong> Se presenta el amparo colectivo preparado por el abogado Emanuel Medina y encabezado por Miguel Ángel Arce Montiel con 16 firmantes. Se concede la suspensión temporal de la venta.</p>
+                </div>
+                <div class="timeline-dot"></div>
+              <div class="timeline-img-placeholder">
+    <img src="{{ url_for('static', filename='img/abogado.jpg') }}" 
+         alt="Votación en el Congreso del Estado" 
+         style="width: 95%; height: auto; border-radius: 8px; display: block;"
+         onerror="this.onerror=null; this.src='img/abogado.jpg';">
+</div>
+            </div>
+
+            <!-- EVENTO 7: TRES FRENTES DE BATALLA Y LA SUPREMA CORTE -->
+            <div class="timeline-item">
+                <div class="timeline-card">
+                    <span style="font-size: 1.5rem;">⚠️</span>
+                    <div class="fecha">Años <span class="año">2014 - 2016</span>: Resistencia</div>
+                    <p>Frente a talas clandestinas e incendios provocados para descuidar el terreno, la comunidad responde con reforestación constante. El caso escala de forma inédita hasta ser atraído por la <strong>Suprema Corte de Justicia de la Nación</strong>.</p>
+                </div>
+                <div class="timeline-dot"></div>
+               <div class="timeline-img-placeholder">
+    <img src="{{ url_for('static', filename='img/punto.jpg') }}" 
+         alt="Votación en el Congreso del Estado" 
+         style="width: 100%; height: auto; border-radius: 8px; display: block;"
+         onerror="this.onerror=null; this.src='img/punto.jpg';">
+</div>
+            </div>
+
+            <!-- EVENTO 8: EL TRIUNFO LEGAL -->
+            <div class="timeline-item">
+                <div class="timeline-card">
+                    <span style="font-size: 1.5rem;">🏛️</span>
+                    <div class="fecha">20 de Diciembre de <span class="año">2017</span></div>
+                    <p>Con Leopoldo Domínguez como presidente del Congreso, se aprueba la abrogación definitiva del decreto de venta de 2013. El terreno vuelve a ser oficialmente patrimonio público para siempre.</p>
+                </div>
+                <div class="timeline-dot"></div>
+               <div class="timeline-img-placeholder">
+    <img src="{{ url_for('static', filename='img/anulado.jpg') }}" 
+         alt="Votación en el Congreso del Estado" 
+         style="width: 100%; height: auto; border-radius: 8px; display: block;"
+         onerror="this.onerror=null; this.src='img/anulado.jpg';">
+</div>
+            </div>
+
+            <!-- EVENTO 9: NUEVAS AMENAZAS DETENIDAS -->
+            <div class="timeline-item">
+                <div class="timeline-card">
+                    <span style="font-size: 1.5rem;">🛑</span>
+                    <div class="fecha">Años <span class="año">2019 - 2022</span>: Nuevos Intentos</div>
+                    <p>Se frenan dos nuevos intentos oficiales sobre el predio: la propuesta del CREE de Antonio Echevarría (2019) y un nuevo estadio de béisbol de Miguel Ángel Navarro (2022), defendiendo su vocación de área verde.</p>
+                </div>
+                <div class="timeline-dot"></div>
+                <div class="timeline-img-placeholder">
+    <img src="{{ url_for('static', filename='img/unidos.jpg') }}" 
+         alt="Votación en el Congreso del Estado" 
+         style="width: 100%; height: auto; border-radius: 8px; display: block;"
+         onerror="this.onerror=null; this.src='img/unidos.jpg';">
+</div>
+            </div>
+
+            <!-- EVENTO 10: DÉCIMO ANIVERSARIO Y MEMORIA -->
+            <div class="timeline-item">
+                <div class="timeline-card">
+                    <span style="font-size: 1.5rem;">📖</span>
+                    <div class="fecha">Año <span class="año">2023</span>: 10 Años de Lucha</div>
+                    <p>A una década del movimiento, investigadoras e investigadores de la UAN publican la memoria histórica <em>"Crear dos, tres, muchos Parques de la Dignidad"</em>, documentando las lecciones del parque.</p>
+                </div>
+                <div class="timeline-dot"></div>
+               <div class="timeline-img-placeholder">
+    <img src="{{ url_for('static', filename='img/juego.jpg') }}" 
+         alt="Votación en el Congreso del Estado" 
+         style="width: 100%; height: auto; border-radius: 8px; display: block;"
+         onerror="this.onerror=null; this.src='img/juego.jpg';">
+</div>
+            </div>
+
+            <!-- EVENTO 11: EL CORAZÓN DEL PARQUE -->
+            <div class="timeline-item">
+                <div class="timeline-card">
+                    <span style="font-size: 1.5rem;">🌳</span>
+                    <div class="fecha">Actualidad: <span class="año">Santuario Vivo</span></div>
+                    <p>Hoy alberga más de <strong>500 especies</strong> de flora y fauna silvestre. El estandarte de este logro es la monumental <em>Ceiba speciosa</em> central, cuidada por vecinos y deportistas como el pulmón vivo de Tepic.</p>
+                </div>
+                <div class="timeline-dot"></div>
+               <div class="timeline-img-placeholder">
+    <img src="{{ url_for('static', filename='img/inicio.jpg') }}" 
+     alt="Inicio de esta lucha" 
+     style="width: 100%; height: auto; border-radius: 8px; display: block;"
+     onerror="this.onerror=null; this.src='img/inicio.jpg';">
+</div>
+            </div>
+          <!-- EVENTO 12: A LO QUE NOS ENFRENTAMOS -->
+<div class="timeline-item">
+    <div class="timeline-card">
+        <span style="font-size: 1.5rem;">⚠️</span>
+        <div class="fecha">Actualidad: <span class="año">La Amenaza Persiste</span></div>
+        <p><strong>A lo que nos enfrentamos:</strong> Actualmente existe la intención de construir un estadio con un presupuesto aproximado de <strong>300 millones de pesos</strong>, pretendiendo utilizar los terrenos del Parque de la Dignidad como área de estacionamiento. Tras años de defensa constante, la comunidad se mantiene firme: no permitiremos la destrucción de un pulmón verde fundamental para Tepic.</p>
+    </div>
+    <div class="timeline-dot"></div>
+    <div class="timeline-img-placeholder">
+        <img src="{{ url_for('static', filename='img/asco.jpg') }}" 
+             alt="Proyecto del Estadio" 
+             style="width: 100%; height: auto; border-radius: 8px; display: block;"
+             onerror="this.onerror=null; this.src='img/asco.jpg';">
+    </div>
+</div>
+        </div>
+    </div>
+
+    <footer>
+        <p>Sitio web desarrollado por <span>Alan Master 95</span> &copy; 2026</p>
+    </footer>
+
+</body>
+</html>

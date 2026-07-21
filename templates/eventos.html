@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventos y Convocatorias - Parque de la Dignidad</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Segoe+UI:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background-color: #f4f7f5;
+            color: #2b2b2b;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        header {
+            background-color: #1b3a24;
+            color: white;
+            text-align: center;
+            padding: 2.5rem 2rem;
+            border-bottom: 4px solid #2e7d32;
+        }
+        header h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            font-size: 2.5rem;
+            margin: 0 0 0.5rem 0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        header p {
+            font-size: 1.1rem;
+            color: #a3c6ae;
+            margin: 0;
+        }
+        
+        /* MENÚ INTERACTIVO MANTENIENDO EL DORADO DE LEYENDAS */
+        nav {
+            background-color: #112618;
+            display: flex;
+            justify-content: center;
+            padding: 0.9rem;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 1.5rem;
+            font-weight: 700;
+            font-size: 1.1rem;
+            font-family: 'Montserrat', sans-serif;
+            transition: color 0.2s ease;
+        }
+        nav a.destacado-amarillo {
+            color: #ffd54f !important;
+        }
+        nav a:hover {
+            color: #2e7d32;
+        }
+
+        .contenedor-principal {
+            max-width: 750px;
+            margin: 3rem auto;
+            background: #ffffff;
+            padding: 3rem;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(27,58,36,0.05);
+            box-sizing: border-box;
+        }
+
+        h2.seccion-titulo {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            color: #1b3a24;
+            font-size: 2.2rem;
+            text-align: center;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+        }
+
+        .aviso-permanente {
+            background-color: #e8f5e9;
+            border-left: 5px solid #2e7d32;
+            padding: 1.5rem;
+            border-radius: 4px;
+            margin-bottom: 3rem;
+            font-weight: 600;
+            line-height: 1.6;
+            color: #1b3a24;
+        }
+
+        .bloque-eventos {
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
+        }
+
+        /* ESTRUCTURA PREMIUM PARA LA TARJETA DEL EVENTO */
+        .tarjeta-evento-premium {
+            background: #ffffff;
+            border-radius: 12px;
+            border: 1px solid #e1e8e3;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.05);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.2s ease;
+        }
+
+        .tarjeta-evento-premium:hover {
+            transform: translateY(-4px);
+        }
+
+        /* Contenedor del cartel en la parte superior */
+        .cartel-portada {
+            width: 100%;
+            background-color: #1b3a24;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 1.5rem 0;
+            border-bottom: 4px solid #2e7d32;
+        }
+
+        .cartel-portada img {
+            max-width: 90%;
+            height: auto;
+            border-radius: 6px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            display: block;
+        }
+
+        /* Cuerpo de información debajo del cartel */
+        .cuerpo-evento {
+            padding: 2rem;
+            position: relative;
+        }
+
+        /* Badge flotante elegante para la fecha */
+        .badge-fecha-premium {
+            position: absolute;
+            top: -25px;
+            right: 2rem;
+            background-color: #ffd54f;
+            color: #1b3a24;
+            padding: 0.6rem 1.2rem;
+            border-radius: 30px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            font-size: 1.1rem;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .cuerpo-evento h3 {
+            margin: 0 0 1rem 0;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            color: #1b3a24;
+            font-size: 1.6rem;
+            padding-right: 8rem;
+        }
+
+        .cuerpo-evento p {
+            margin: 0;
+            line-height: 1.6;
+            color: #333333;
+            font-weight: 600;
+            font-size: 1.05rem;
+        }
+
+        .detalles-linea {
+            margin-top: 1.5rem;
+            padding-top: 1rem;
+            border-top: 1px solid #eee;
+            font-size: 1rem;
+            font-weight: 700;
+        }
+
+        .detalles-linea span {
+            color: #2e7d32;
+            margin-right: 2rem;
+        }
+
+        /* SECCIÓN DE PRÓXIMAMENTE */
+        .tarjeta-proximamente {
+            background-color: #fafafa;
+            border: 2px dashed #ccc;
+            border-radius: 8px;
+            padding: 2.5rem 2rem;
+            text-align: center;
+            color: #666;
+            font-weight: 600;
+        }
+
+        .foto-comunidad-wrap {
+            max-width: 500px;
+            margin: 0 auto 1.5rem auto;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+
+        .foto-comunidad-wrap img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* RESPONSIVO */
+        @media (max-width: 600px) {
+            .contenedor-principal { padding: 1.5rem; margin: 1.5rem auto; }
+            .cuerpo-evento h3 { padding-right: 0; font-size: 1.4rem; margin-top: 1rem; }
+            .badge-fecha-premium { position: static; display: inline-block; margin-bottom: 0.5rem; }
+            .detalles-linea span { display: block; margin-bottom: 0.5rem; }
+        }
+
+        footer {
+            margin-top: auto;
+            background-color: #112618;
+            color: white;
+            text-align: center;
+            padding: 1.5rem;
+            font-size: 1rem;
+            font-family: 'Montserrat', sans-serif;
+            border-top: 3px solid #2e7d32;
+        }
+        footer span {
+            color: #ffd54f;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Eventos del Parque</h1>
+        <p>Súmate a las acciones colectivas y defiende nuestro espacio verde.</p>
+    </header>
+
+    <nav>
+        <a href="index.html">Inicio</a>
+        <a href="historia.html">Nuestra Historia</a>
+        <a href="leyendas.html" style="color: #ffd54f; font-weight: bold;">★ Muro de Honor ★</a>
+        <a href="eventos.html">Eventos</a>
+    </nav>
+
+    <div class="contenedor-principal">
+        <h2 class="seccion-titulo">Próximas Actividades</h2>
+        
+        <div class="aviso-permanente">
+            🌱 <strong>Nota comunitaria:</strong> Las jornadas de reforestación y mantenimiento se organizan de manera constante, habitualmente los días <strong>sábados o domingos</strong> por la mañana. Cualquier cambio de última hora o evento emergente se actualizará directamente en esta pizarra. ¡Trae tus herramientas y agua para compartir!
+        </div>
+
+        <div class="bloque-eventos">
+
+            <!-- TARJETA DEL EVENTO CON PORTADA SUPERIOR -->
+            <div class="tarjeta-evento-premium">
+                
+                <!-- Portada donde se carga el cartel directamente -->
+                <div class="cartel-portada">
+                    <img src="img/cartel.jpg" alt="Cartel de 13 Años de Resistencia" style="width: 250px; height: auto;">
+                </div>
+                
+                <!-- Datos informativos inferiores -->
+                <div class="cuerpo-evento">
+                    <div class="badge-fecha-premium">26 Jul</div>
+                    <h3>13 Años de Resistencia</h3>
+                    
+                    <p>
+                        <span style="color: #b38b00; font-weight: bold;">Acompáñanos a conmemorar más de una década de organización, cuidado y defensa activa de nuestro pulmón urbano.</span> Habrá distintas actividades conmemorativas preparadas por la comunidad. ¡Invitados a participar todos los vecinos!
+                    </p>
+
+                    <div class="detalles-linea">
+                        <span>⏰ 08:00 AM</span> 
+                        <span>📍 Parque de la Dignidad</span>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- SECCIÓN DE PRÓXIMAMENTE CON FOTO COMUNITARIA INCLUIDA -->
+            <div class="tarjeta-proximamente">
+                
+                <!-- Contenedor de la foto conceptual abajo del evento principal -->
+                <div class="foto-comunidad-wrap">
+                    <img src="{{ url_for('static', filename='img/trabajo.jpg') }}" alt="Comunidad trabajando en el parque" onerror="this.onerror=null; this.src='img/trabajo.jpg';">
+                </div>
+
+                <span style="font-size: 2rem;">⏳</span>
+                <p style="margin: 0.5rem 0 0 0; font-size: 1.1rem; color: #e21414;">Actualmente no hay más eventos programados por ahora.</p>
+                <p style="margin: 0.2rem 0 0 0; font-size: 0.95rem; color: #777; font-weight: normal;">Próximamente se van a registrar los nuevos eventos y se les informará por este medio. ¡Estén atentos!</p>
+            </div>
+
+        </div>
+    </div>
+
+    <footer>
+        <p>Sitio web desarrollado por <span>Alan Master 95</span> &copy; 2026</p>
+    </footer>
+
+</body>
+</html>
