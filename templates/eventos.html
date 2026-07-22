@@ -232,6 +232,69 @@
             color: #ffd54f;
             font-weight: bold;
         }
+        /* --- ADAPTACIÓN PARA CELULARES --- */
+@media screen and (max-width: 768px) {
+    /* Evitar que el contenido toque las orillas del teléfono */
+    body {
+        padding: 0 10px !important;
+    }
+
+    /* Reducir títulos y cajas principales */
+    h1 { font-size: 1.8rem !important; }
+    h2 { font-size: 1.4rem !important; }
+
+    .contenedor-principal, .card, .container {
+        width: 100% !important;
+        margin: 10px 0 !important;
+        padding: 15px !important;
+        box-sizing: border-box !important;
+    }
+
+    /* Hacer que el menú de navegación se apile bonito en columna */
+    nav {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 10px !important;
+    }
+
+    nav a {
+        margin: 0 !important;
+        width: 100% !important;
+        text-align: center !important;
+    }
+
+    /* Arreglar la línea de tiempo (Historia) para que no se encime */
+    .timeline::before {
+        left: 20px !important;
+    }
+
+    .timeline-item, 
+    .timeline-item:nth-child(even) {
+        width: 100% !important;
+        padding-left: 45px !important;
+        padding-right: 0 !important;
+        text-align: left !important;
+        flex-direction: column !important;
+    }
+
+    .timeline-dot {
+        left: 14px !important;
+    }
+
+    .timeline-card, 
+    .timeline-img-placeholder {
+        width: 100% !important;
+        float: none !important;
+        margin: 10px 0 !important;
+    }
+
+    /* Ajustar imágenes para que no se salgan de la pantalla */
+    img {
+        max-width: 100% !important;
+        height: auto !important;
+    }
+}
     </style>
 </head>
 <body>
