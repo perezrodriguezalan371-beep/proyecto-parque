@@ -4,25 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nuestra Historia - Parque de la Dignidad</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Segoe+UI:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Segoe+UI:wght@400;600&display=swap" rel="stylesheet">
+    
     <style>
         body {
             font-family: 'Segoe UI', Arial, sans-serif;
-            background-color: #fcf9f5; /* Fondo crema suave elegante */
-            color: #2b2b2b; /* Texto casi negro para mayor impacto y lectura */
+            background-color: #fcf9f5;
+            color: #2b2b2b;
             margin: 0;
             padding: 0;
             display: flex;
             flex-direction: column;
             min-height: 100vh;
         }
+
         header {
-            background-color: #1a1a1a; /* Fondo negro sólido para resaltar el encabezado */
+            background-color: #1a1a1a;
             color: white;
             text-align: center;
             padding: 2.5rem 2rem;
-            border-bottom: 4px solid #b22222; /* Línea roja fuerte divisoria */
+            border-bottom: 4px solid #b22222;
         }
+
         header h1 {
             font-family: 'Montserrat', sans-serif;
             font-weight: 900;
@@ -31,151 +34,141 @@
             text-transform: uppercase;
             letter-spacing: 1px;
         }
+
         header p {
             font-size: 1.1rem;
-            color: #cccccc;
+            color: #dddddd;
             margin: 0;
         }
-        
-        /* ESTILOS DEL MENÚ INTERACTIVO */
+
         nav {
-            background-color: #111111; /* Negro profundo */
-            display: flex;
-            justify-content: center;
-            padding: 0.9rem;
+            background-color: #2b2b2b;
+            padding: 1rem;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
         }
+
         nav a {
-            color: white;
+            color: #ffffff;
             text-decoration: none;
-            margin: 0 1.5rem;
-            font-weight: 700; /* Letras negritas bien marcadas */
-            font-size: 1.1rem;
-            font-family: 'Montserrat', sans-serif;
-            transition: color 0.2s ease;
+            margin: 0 15px;
+            font-weight: 600;
+            font-size: 1.05rem;
+            transition: color 0.3s ease;
         }
-        
-        nav a.destacado-amarillo {
-            color: #ffd54f !important;
-        }
-        
+
         nav a:hover {
-            color: #b22222;
+            color: #ffcc00;
+        }
+
+        .destacado-amarillo {
+            color: #ffd54f !important;
+            font-weight: bold;
         }
 
         .contenedor-principal {
             max-width: 1000px;
             margin: 3rem auto;
-            background: #ffffff; /* Blanco puro para la caja principal */
+            background-color: #ffffff;
             padding: 3rem;
             border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-        }
-        
-        /* TÍTULO PRINCIPAL EN ROJO FUERTE Y NEGRITAS */
-        h2.titulo-cronologia {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 900;
-            color: #b22222; /* Rojo Fuerte */
-            font-size: 2.2rem;
-            text-align: center;
-            text-transform: uppercase;
-            margin-bottom: 3rem;
-            letter-spacing: 1.5px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            flex: 1;
         }
 
-        /* DISEÑO DE LA LÍNEA DE TIEMPO */
+        .titulo-cronologia {
+            text-align: center;
+            font-family: 'Montserrat', sans-serif;
+            color: #1a1a1a;
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .titulo-cronologia::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: #b22222;
+            border-radius: 2px;
+        }
+
+        /* ESTRUCTURA DE LÍNEA DE TIEMPO (PC) */
         .timeline {
             position: relative;
             padding: 2rem 0;
         }
-        /* Eje vertical central en negro/gris oscuro */
+
         .timeline::before {
             content: '';
             position: absolute;
-            left: 50%;
             top: 0;
             bottom: 0;
+            left: 50%;
             width: 4px;
-            background-color: #2b2b2b;
+            background: #b22222;
             transform: translateX(-50%);
         }
+
         .timeline-item {
             position: relative;
-            margin-bottom: 4rem;
+            margin-bottom: 3rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            width: 100%;
         }
+
         .timeline-item:nth-child(even) {
             flex-direction: row-reverse;
         }
-        
-        /* TARJETAS CON BORDE ROJO Y FONDO BLANCO PULIDO */
+
         .timeline-card {
             width: 45%;
-            padding: 1.8rem;
-            background: #ffffff;
+            background: #f8f9fa;
+            padding: 1.5rem;
             border-radius: 8px;
-            border-left: 5px solid #b22222; /* Detalle rojo fuerte al costado */
-            box-shadow: 0 4px 15px rgba(0,0,0,0.06);
-            box-sizing: border-box;
-            border-top: 1px solid #eee;
-            border-right: 1px solid #eee;
-            border-bottom: 1px solid #eee;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            border-left: 5px solid #b22222;
         }
-        .timeline-item:nth-child(odd) .timeline-card {
-            text-align: right;
-            border-left: none;
-            border-right: 5px solid #b22222; /* Lado derecho para los impares */
-        }
-        
+
         .timeline-img-placeholder {
             width: 45%;
-            text-align: center;
-            box-sizing: border-box;
         }
-        
-        /* Círculos conectores centrales en Rojo */
+
         .timeline-dot {
             position: absolute;
             left: 50%;
             width: 16px;
             height: 16px;
             background: #b22222;
-            border: 4px solid white;
+            border: 4px solid #ffffff;
             border-radius: 50%;
             transform: translateX(-50%);
-            z-index: 2;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+            box-shadow: 0 0 0 2px #b22222;
         }
-        
-        /* FECHAS EN NEGRITA */
+
         .fecha {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 900;
-            color: #1a1a1a; /* Negro para el texto de la fecha */
-            font-size: 1.25rem;
-            margin: 0.5rem 0;
+            font-weight: bold;
+            color: #1a1a1a;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
         }
+
         .fecha span.año {
-            color: #b22222; /* El año resalta en rojo */
+            color: #b22222;
         }
-        
+
         .timeline-card p {
             line-height: 1.6;
             margin: 0;
             color: #444444;
             font-size: 1rem;
-            font-weight: 600; /* Un grosor de texto más robusto y estético */
-        }
-
-        @media (max-width: 768px) {
-            .timeline::before { left: 20px; }
-            .timeline-item, .timeline-item:nth-child(even) { flex-direction: column; align-items: flex-start; }
-            .timeline-card, .timeline-img-placeholder { width: 90%; margin-left: 40px; text-align: left !important; border-left: 5px solid #b22222 !important; border-right: none !important; }
-            .timeline-dot { left: 20px; }
-            .timeline-img-placeholder { margin-top: 1rem; }
+            font-weight: 600;
         }
 
         footer {
@@ -188,74 +181,77 @@
             font-family: 'Montserrat', sans-serif;
             border-top: 3px solid #b22222;
         }
+
         footer span {
             color: #ffd54f;
             font-weight: bold;
         }
+
+        /* --- ADAPTACIÓN EXCLUSIVA PARA CELULARES --- */
+        @media screen and (max-width: 768px) {
+            body {
+                padding: 0 10px !important;
+            }
+
+            h1 { font-size: 1.8rem !important; }
+            h2 { font-size: 1.4rem !important; }
+
+            .contenedor-principal, .card, .container {
+                width: 100% !important;
+                margin: 10px 0 !important;
+                padding: 15px !important;
+                box-sizing: border-box !important;
+            }
+
+            nav {
+                display: flex !important;
+                flex-direction: column !important;
+                align-items: center !important;
+                gap: 10px !important;
+            }
+
+            nav a {
+                margin: 0 !important;
+                width: 100% !important;
+                text-align: center !important;
+            }
+
+            .timeline::before {
+                left: 20px !important;
+            }
+
+            .timeline-item, 
+            .timeline-item:nth-child(even) {
+                width: 100% !important;
+                padding-left: 45px !important;
+                padding-right: 0 !important;
+                text-align: left !important;
+                flex-direction: column !important;
+                align-items: stretch !important;
+                margin-bottom: 2rem !important;
+            }
+
+            .timeline-dot {
+                left: 14px !important;
+                top: 20px !important;
+            }
+
+            .timeline-card, 
+            .timeline-img-placeholder {
+                width: 100% !important;
+                float: none !important;
+                margin: 10px 0 !important;
+                box-sizing: border-box !important;
+            }
+
+            img {
+                max-width: 100% !important;
+                height: auto !important;
+                border-radius: 8px !important;
+                display: block !important;
+            }
+        }
     </style>
-    /* --- ADAPTACIÓN PARA CELULARES --- */
-@media screen and (max-width: 768px) {
-    /* Evitar que el contenido toque las orillas del teléfono */
-    body {
-        padding: 0 10px !important;
-    }
-
-    /* Reducir títulos y cajas principales */
-    h1 { font-size: 1.8rem !important; }
-    h2 { font-size: 1.4rem !important; }
-
-    .contenedor-principal, .card, .container {
-        width: 100% !important;
-        margin: 10px 0 !important;
-        padding: 15px !important;
-        box-sizing: border-box !important;
-    }
-
-    /* Hacer que el menú de navegación se apile bonito en columna */
-    nav {
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: center !important;
-        gap: 10px !important;
-    }
-
-    nav a {
-        margin: 0 !important;
-        width: 100% !important;
-        text-align: center !important;
-    }
-
-    /* Arreglar la línea de tiempo (Historia) para que no se encime */
-    .timeline::before {
-        left: 20px !important;
-    }
-
-    .timeline-item, 
-    .timeline-item:nth-child(even) {
-        width: 100% !important;
-        padding-left: 45px !important;
-        padding-right: 0 !important;
-        text-align: left !important;
-        flex-direction: column !important;
-    }
-
-    .timeline-dot {
-        left: 14px !important;
-    }
-
-    .timeline-card, 
-    .timeline-img-placeholder {
-        width: 100% !important;
-        float: none !important;
-        margin: 10px 0 !important;
-    }
-
-    /* Ajustar imágenes para que no se salgan de la pantalla */
-    img {
-        max-width: 100% !important;
-        height: auto !important;
-    }
-}
 </head>
 <body>
 
@@ -279,7 +275,7 @@
 
         <div class="timeline">
 
-            <!-- EVENTO 1: LA DEMOLICIÓN Y EL ABANDONO -->
+            <!-- EVENTO 1 -->
             <div class="timeline-item">
                 <div class="timeline-card">
                     <span style="font-size: 1.5rem;">🔨</span>
@@ -290,12 +286,11 @@
                 <div class="timeline-img-placeholder">
                     <img src="{{ url_for('static', filename='img/demolicion.jpg') }}" 
                          alt="Demolición del Estadio" 
-                         style="width: 100%; height: auto; border-radius: 8px; display: block;"
                          onerror="this.onerror=null; this.src='/static/img/demolicion.jpg';">
                 </div>
             </div>
 
-            <!-- EVENTO 2: AÑOS DE ABANDONO -->
+            <!-- EVENTO 2 -->
             <div class="timeline-item">
                 <div class="timeline-card">
                     <span style="font-size: 1.5rem;">🏚️</span>
@@ -306,12 +301,11 @@
                 <div class="timeline-img-placeholder">
                     <img src="{{ url_for('static', filename='img/abandono.jpg') }}" 
                          alt="Predio en abandono" 
-                         style="width: 100%; height: auto; border-radius: 8px; display: block;"
                          onerror="this.onerror=null; this.src='/static/img/abandono.jpg';">
                 </div>
             </div>
 
-            <!-- EVENTO 3: INICIATIVA DE VENTA -->
+            <!-- EVENTO 3 -->
             <div class="timeline-item">
                 <div class="timeline-card">
                     <span style="font-size: 1.5rem;">📜</span>
@@ -322,12 +316,11 @@
                 <div class="timeline-img-placeholder">
                     <img src="{{ url_for('static', filename='img/congreso.jpg') }}" 
                          alt="Congreso del Estado" 
-                         style="width: 100%; height: auto; border-radius: 8px; display: block;"
                          onerror="this.onerror=null; this.src='/static/img/congreso.jpg';">
                 </div>
             </div>
 
-            <!-- EVENTO 4: LA APROBACIÓN DE LA VENTA -->
+            <!-- EVENTO 4 -->
             <div class="timeline-item">
                 <div class="timeline-card">
                     <span style="font-size: 1.5rem;">⚖️</span>
@@ -338,12 +331,11 @@
                 <div class="timeline-img-placeholder">
                     <img src="{{ url_for('static', filename='img/votacion.jpg') }}" 
                          alt="Votacion en el Congreso del Estado" 
-                         style="width: 100%; height: auto; border-radius: 8px; display: block;"
                          onerror="this.onerror=null; this.src='/static/img/votacion.jpg';">
                 </div>
             </div>
 
-            <!-- EVENTO 5: NACE EL PARQUE DE LA DIGNIDAD -->
+            <!-- EVENTO 5 -->
             <div class="timeline-item">
                 <div class="timeline-card">
                     <span style="font-size: 1.5rem;">📢</span>
@@ -353,13 +345,12 @@
                 <div class="timeline-dot"></div>
                 <div class="timeline-img-placeholder">
                     <img src="{{ url_for('static', filename='img/inicio.jpg') }}" 
-                         alt="inicio de esta lucha " 
-                         style="width: 100%; height: auto; border-radius: 8px; display: block;"
+                         alt="inicio de esta lucha" 
                          onerror="this.onerror=null; this.src='/static/img/inicio.jpg';">
                 </div>
             </div>
 
-            <!-- EVENTO 6: EL AMPARO COLECTIVO -->
+            <!-- EVENTO 6 -->
             <div class="timeline-item">
                 <div class="timeline-card">
                     <span style="font-size: 1.5rem;">📁</span>
@@ -370,12 +361,11 @@
                 <div class="timeline-img-placeholder">
                     <img src="{{ url_for('static', filename='img/abogado.jpg') }}" 
                          alt="Votación en el Congreso del Estado" 
-                         style="width: 95%; height: auto; border-radius: 8px; display: block;"
                          onerror="this.onerror=null; this.src='/static/img/abogado.jpg';">
                 </div>
             </div>
 
-            <!-- EVENTO 7: TRES FRENTES DE BATALLA Y LA SUPREMA CORTE -->
+            <!-- EVENTO 7 -->
             <div class="timeline-item">
                 <div class="timeline-card">
                     <span style="font-size: 1.5rem;">⚠️</span>
@@ -386,12 +376,11 @@
                 <div class="timeline-img-placeholder">
                     <img src="{{ url_for('static', filename='img/punto.jpg') }}" 
                          alt="Votación en el Congreso del Estado" 
-                         style="width: 100%; height: auto; border-radius: 8px; display: block;"
                          onerror="this.onerror=null; this.src='/static/img/punto.jpg';">
                 </div>
             </div>
 
-            <!-- EVENTO 8: EL TRIUNFO LEGAL -->
+            <!-- EVENTO 8 -->
             <div class="timeline-item">
                 <div class="timeline-card">
                     <span style="font-size: 1.5rem;">🏛️</span>
@@ -402,12 +391,11 @@
                 <div class="timeline-img-placeholder">
                     <img src="{{ url_for('static', filename='img/anulado.jpg') }}" 
                          alt="Votación en el Congreso del Estado" 
-                         style="width: 100%; height: auto; border-radius: 8px; display: block;"
                          onerror="this.onerror=null; this.src='/static/img/anulado.jpg';">
                 </div>
             </div>
 
-            <!-- EVENTO 9: NUEVAS AMENAZAS DETENIDAS -->
+            <!-- EVENTO 9 -->
             <div class="timeline-item">
                 <div class="timeline-card">
                     <span style="font-size: 1.5rem;">🛑</span>
@@ -418,12 +406,11 @@
                 <div class="timeline-img-placeholder">
                     <img src="{{ url_for('static', filename='img/unidos.jpg') }}" 
                          alt="Votación en el Congreso del Estado" 
-                         style="width: 100%; height: auto; border-radius: 8px; display: block;"
                          onerror="this.onerror=null; this.src='/static/img/unidos.jpg';">
                 </div>
             </div>
 
-            <!-- EVENTO 10: DÉCIMO ANIVERSARIO Y MEMORIA -->
+            <!-- EVENTO 10 -->
             <div class="timeline-item">
                 <div class="timeline-card">
                     <span style="font-size: 1.5rem;">📖</span>
@@ -434,12 +421,11 @@
                 <div class="timeline-img-placeholder">
                     <img src="{{ url_for('static', filename='img/juego.jpg') }}" 
                          alt="Votación en el Congreso del Estado" 
-                         style="width: 100%; height: auto; border-radius: 8px; display: block;"
                          onerror="this.onerror=null; this.src='/static/img/juego.jpg';">
                 </div>
             </div>
 
-            <!-- EVENTO 11: EL CORAZÓN DEL PARQUE -->
+            <!-- EVENTO 11 -->
             <div class="timeline-item">
                 <div class="timeline-card">
                     <span style="font-size: 1.5rem;">🌳</span>
@@ -450,12 +436,11 @@
                 <div class="timeline-img-placeholder">
                     <img src="{{ url_for('static', filename='img/inicio.jpg') }}" 
                          alt="Inicio de esta lucha" 
-                         style="width: 100%; height: auto; border-radius: 8px; display: block;"
                          onerror="this.onerror=null; this.src='/static/img/inicio.jpg';">
                 </div>
             </div>
 
-            <!-- EVENTO 12: A LO QUE NOS ENFRENTAMOS -->
+            <!-- EVENTO 12 -->
             <div class="timeline-item">
                 <div class="timeline-card">
                     <span style="font-size: 1.5rem;">⚠️</span>
@@ -466,7 +451,6 @@
                 <div class="timeline-img-placeholder">
                     <img src="{{ url_for('static', filename='img/asco.jpg') }}" 
                          alt="Proyecto del Estadio" 
-                         style="width: 100%; height: auto; border-radius: 8px; display: block;"
                          onerror="this.onerror=null; this.src='/static/img/asco.jpg';">
                 </div>
             </div>
@@ -475,4 +459,8 @@
     </div>
 
     <footer>
-        <p>Sitio web desarrollado por <span>Alan Master 95
+        <p>Sitio web desarrollado por <span>Alan Master 95</span></p>
+    </footer>
+
+</body>
+</html>
